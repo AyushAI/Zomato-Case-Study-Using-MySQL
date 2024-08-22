@@ -52,3 +52,13 @@ ORDER BY Total_menu DESC;
 
  
 -- 7. Find the number of votes and average 
+SELECT 
+		r_name,
+		AVG(restaurant_rating) AS average_rating,
+        COUNT(*) AS number_of_votes
+FROM restaurants AS A
+INNER JOIN orders AS B
+ON A.r_id = B.r_id
+GROUP BY A.r_name
+ORDER BY average_rating DESC, number_of_votes DESC;
+         
